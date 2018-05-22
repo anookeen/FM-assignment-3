@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+chan occupied,released;</declaration><template><name x="5" y="5">vehicle</name><declaration>// Place local declarations here.
+</declaration><location id="id0" x="-32" y="-56"><name x="-42" y="-86">start</name></location><location id="id1" x="-240" y="-56"><name x="-250" y="-86">stop</name></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="synchronisation" x="-160" y="-8">released!</label><nail x="-128" y="40"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="synchronisation" x="-184" y="-88">occupied!</label></transition></template><template><name>center</name><location id="id2" x="40" y="-24"><name x="30" y="-54">taken</name></location><location id="id3" x="-184" y="-24"><name x="-194" y="-54">free</name></location><init ref="id3"/><transition><source ref="id2"/><target ref="id3"/><label kind="synchronisation" x="-96" y="16">released?</label><nail x="-64" y="64"/></transition><transition><source ref="id3"/><target ref="id2"/><label kind="synchronisation" x="-120" y="-80">occupied?</label><nail x="-88" y="-104"/></transition></template><system>// Place template instantiations here.
+vehicle1=vehicle();
+vehicle2=vehicle();
+vehicle3=vehicle();
+vehicle4=vehicle();
+
+// List one or more processes to be composed into a system.
+system vehicle1,vehicle2,vehicle3,vehicle4,center;</system></nta>
